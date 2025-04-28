@@ -1,0 +1,81 @@
+        /* Main content area */
+        .stApp {
+            background-color: #0e1117;
+            color: #f0f2f6;
+        }
+        
+        /* Text color */
+        .css-1aumxhk, .css-1v0mbdj, .css-1y4p8pa, .markdown-text-container {
+            color: #f0f2f6 !important;
+        }
+        
+        /* Sidebar */
+        .css-1d391kg {
+            background-color: #0e1117;
+            border-right: 1px solid #2a2d34;
+        }
+        
+        /* Headers */
+        h1, h2, h3, h4, h5, h6 {
+            color: #f0f2f6;
+        }
+        
+        /* Buttons */
+        .stButton>button {
+            border: 1px solid #4CAF50;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .stButton>button:hover {
+            background-color: #45a049;
+            border-color: #45a049;
+        }
+        
+        /* Dataframes */
+        .stDataFrame {
+            background-color: #1a1d24;
+            border: 1px solid #2a2d34;
+            border-radius: 4px;
+        }
+        
+        /* Input widgets */
+        .stTextInput>div>div>input, 
+        .stSelectbox>div>div>select,
+        .stSlider>div>div>div>div {
+            background-color: #1a1d24;
+            border: 1px solid #2a2d34;
+            color: #f0f2f6;
+            border-radius: 4px;
+        }
+        
+        /* Info boxes */
+        .stAlert {
+            background-color: #1a1d24;
+            border: 1px solid #2a2d34;
+            border-radius: 4px;
+        }
+        
+        /* Sidebar footer */
+        .sidebar-footer {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #2a2d34;
+        }
+        
+        /* Custom divider */
+        .custom-divider {
+            border-top: 1px solid #2a2d34;
+            margin: 10px 0;
+        }
+        
+        /* Plotly dark theme */
+        .js-plotly-plot .plotly, .js-plotly-plot .plotly div {
+            background-color: transparent !important;
+        }
+   
+
+

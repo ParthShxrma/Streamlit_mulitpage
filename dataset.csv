@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>regression no missing val, data delim_whitespace  | Kaggle</title>
+    <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Explore and run machine learning code with Kaggle Notebooks | Using data from Gas sensor array under dynamic gas mixtures" />
+    <meta name="turbolinks-cache-control" content="no-cache" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta name="theme-color" content="#008ABC" />
+    <script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==" type="text/javascript">
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations()
+                .then(function(registrations) {
+                    for (let registration of registrations) {
+                        registration.unregister();
+                    }
+                })
+                .catch(function(err) {
+                    console.error("Service worker unregister failed: ", err);
+                });
+        }
+    </script>
+    <script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==" type="text/javascript">
+        window["pageRequestStartTime"] = 1617726814514;
+        window["pageRequestEndTime"] = 1617726815076;
+        window["initialPageLoadStartTime"] = new Date().getTime();
+    </script>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" /><link rel="preconnect" href="https://stats.g.doubleclick.net" /><link rel="preconnect" href="https://storage.googleapis.com" /><link rel="preconnect" href="https://apis.google.com" />
+    <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="manifest" href="/static/json/manifest.json" crossorigin="use-credentials">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic" rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Google+Material+Icons" rel="stylesheet" type='text/css' />
+        <link rel="canonical" href="/jihyeseo/regression-no-missing-val-data-delim-whitespace" />
+        <link rel="stylesheet" type="text/css" href="/static/assets/vendor.css?v=b7aba5228d60a3f39c8a" />
+        <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=025d124b7c112e182d32" />
+    
+    
+ 
+    
+    <script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==">
+        try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
+        d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
+        y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
+        h.start=1*new Date;h.end=i=function(){y.forEach(x => x<d.cssRules.length ? d.deleteRule(x) : {})};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
+    </script>
+    <script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-12629138-1', {
+            'optimize_id': 'GTM-52LNT9S',
+            'displayFeaturesTask': null,
+            'send_page_view': false,
+            'content_group1': 'Notebooks'
+        });
+    </script>
+    <script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==" async src="https://www.googletagmanager.com/gtag/js?id=UA-12629138-1"></script>
+
+    
+    
+    <meta name="og:url" content="https://kaggle.com/jihyeseo/regression-no-missing-val-data-delim-whitespace" />
+    <meta property="og:title" content="regression no missing val, data delim_whitespace " />
+    <meta property="og:description" content="Explore and run machine learning code with Kaggle Notebooks | Using data from Gas sensor array under dynamic gas mixtures" />
+    <meta property="og:type" content="website" />
+    <meta name="og:image" content="https://storage.googleapis.com/kaggle-avatars/thumbnails/557222-fb.jpg" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@kaggledatasets" />
+
+
+    
+    
+    <script nonce="gNU+KqwqPB/uMFdaSYrIcA==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Article","author":{"@type":"Person","name":"jihyeseo","sameAs":"/jihyeseo"},"headline":"regression no missing val, data delim_whitespace ","url":"https://www.kaggle.com/jihyeseo/regression-no-missing-val-data-delim-whitespace","dateModified":"2018-05-03T07:05:55.45","datePublished":"2018-05-03T07:05:55.45","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.kaggle.com/jihyeseo/regression-no-missing-val-data-delim-whitespace"},"publisher":{"@type":"Organization","name":"Kaggle","sameAs":"https://www.kaggle.com","logo":{"type":"ImageObject","url":"https://www.kaggle.com/static/images/site-logo.png"}},"image":["https://storage.googleapis.com/kaggle-avatars/thumbnails/557222-fb.jpg"]}</script>
+
+
+    
+    
+    
+<script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==" type="text/javascript">
+    var Kaggle = window.Kaggle || {};
+
+    Kaggle.Current = {
+        antiForgeryToken: 'CfDJ8LdUzqlsSWBPr4Ce3rb9VL-BFL-nxNzy10DBoeb7jeLmS4gRC8467GlOFnW4INQ-1hMTP_3ZqUy0MQF8NeALowhOOhE0b8uDyzy6R_HNIHV7zKPwKe00CX1lIxDtn7F5ObTqmk0PKx9p_GfEQs8H1UU',
+        isAnonymous: true,
+        analyticsToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTc3Mjc3MTUsIlVzZXJJZCI6MH0.Zf0HB-vWC8_0g7i-4lK4k8fTbbVRJ4L_JK6PdG3HQYQ',
+        analyticsTokenExpiry: 15,
+        
+        
+        
+        
+        
+        
+        mdeImageUploader: true,
+        
+        enableRapidash: true, 
+    }
+        Kaggle.Current.log = function(){};
+        Kaggle.Current.warn = function(){};
+
+    var decodeUserDisplayName = function () {
+        var escapedUserDisplayName = Kaggle.Current.userDisplayNameEscaped || "";
+        try {
+            var textVersion = new DOMParser().parseFromString(escapedUserDisplayName, "text/html").documentElement.textContent;
+            if (textVersion) {
+                return textVersion;
+            }
+        } catch(ex) {}
+        return escapedUserDisplayName;
+    }
+    Kaggle.Current.userDisplayName = decodeUserDisplayName();
+</script>
+
+    
+
+<script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==" type="text/javascript">
+    var Kaggle = window.Kaggle || {};
+    Kaggle.PageMessages = [];
+</script>
+
+
+
+        <script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==">window['useKaggleAnalytics'] = true;</script>
+
+    <script id="gapi-target" nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==" src="https://apis.google.com/js/api.js" defer async></script>
+    <script nonce="gNU+KqwqPB/uMFdaSYrIcA==" src="/static/assets/runtime.js?v=e0fd917ba26c0b4731f5" data-turbolinks-track="reload"></script>
+    <script nonce="gNU+KqwqPB/uMFdaSYrIcA==" src="/static/assets/vendor.js?v=ea714697668b3b530582" data-turbolinks-track="reload"></script>
+    <script nonce="gNU+KqwqPB/uMFdaSYrIcA==" src="/static/assets/app.js?v=e81c19c18e41dac7f82b" data-turbolinks-track="reload"></script>
+        <script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==" type="text/javascript">
+            window.kaggleStackdriverConfig = {
+                key: 'AIzaSyDANGXFHtSIVc51MIdGwg4mQFgm3oNrKoo',
+                projectId: 'kaggle-161607',
+                service: 'web-fe',
+                version: 'ci',
+                context: {
+                    user: '0',
+                },
+            };
+        </script>
+</head>
+<body data-turbolinks="false">
+    <main>
+        
+
+
+
+
+
+<div id="site-container"></div>
+<div data-component-name="NavigationContainer" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script class="kaggle-component" nonce="gNU+KqwqPB/uMFdaSYrIcA==">var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"navigationType":"BOTH_NAV"});performance && performance.mark && performance.mark("NavigationContainer.componentCouldBootstrap");</script>
+<div id="site-body" class="hide">
+    
+
+
+
+<div data-component-name="KernelViewer" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script class="kaggle-component" nonce="gNU+KqwqPB/uMFdaSYrIcA==">var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"redirectUrl":null,"kernel":{"id":899863,"title":"regression no missing val, data delim_whitespace ","forkParent":null,"currentRunId":3466029,"mostRecentRunId":3466029,"url":"/jihyeseo/regression-no-missing-val-data-delim-whitespace","tags":[],"commentCount":0,"upvoteCount":1,"viewCount":1461,"forkCount":5,"bestPublicScore":null,"author":{"id":557222,"displayName":"Jihye Sofia Seo","email":null,"editedEmail":null,"editedEmailCode":null,"userName":"jihyeseo","thumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/557222-fb.jpg","profileUrl":"/jihyeseo","registerDate":"0001-01-01T00:00:00Z","lastVisitDate":"0001-01-01T00:00:00Z","statusId":0,"performanceTier":2,"grandfatheredCompetitionTier":null,"userLogins":null,"groupIds":null,"duplicateUsers":null,"hasPhoneVerifications":false,"failedNerdchas":0,"hasPendingNerdcha":false,"deleteRequests":null,"isAdmin":false,"isKaggleBot":false,"isAnonymous":false,"canAct":false,"canBeSeen":false,"thumbnailName":null,"isPhoneVerified":false},"isPrivate":false,"updatedTime":"2018-05-03T07:05:55.45Z","selfLink":"/kernels/899863","pinnedDockerImageVersionId":null,"dockerImagePinningType":"original","originalDockerImageId":null,"isLanguageTemplate":false,"medal":null,"topicId":55700,"readGroupId":null,"writeGroupId":null,"slug":"regression-no-missing-val-data-delim-whitespace","hasUsedAccelerator":null,"pinnedSessionId":null,"disableComments":false,"hasLinkedSubmission":false,"currentUserHasBookmarked":false},"kernelBlob":{"id":4947510,"settings":{"dockerImageVersionId":1302,"dataSources":[{"sourceType":"DatasetVersion","sourceId":6024,"datasetId":null,"databundleVersionId":null,"mountSlug":null}],"sourceType":"notebook","language":"python","accelerator":"none","isInternetEnabled":false},"source":"{\u0022cells\u0022:[{\u0022metadata\u0022:{\u0022_cell_guid\u0022:\u0022b1076dfc-b9ad-4769-8c92-a6c4dae69d19\u0022,\u0022_uuid\u0022:\u00228f2839f25d086af736a60e9eeb907d3b93b6e0e5\u0022,\u0022trusted\u0022:true},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022# This Python 3 environment comes with many helpful analytics libraries installed\\n# It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python\\n# For example, here\u0027s several helpful packages to load in \\nimport math\\nimport seaborn as sns\\nsns.set(style=\\\u0022whitegrid\\\u0022, color_codes=True)\\n\\n\\nfrom wordcloud import WordCloud, STOPWORDS\\n\\nimport pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)\\nimport numpy as np # linear algebra\\nimport matplotlib \\nimport matplotlib.pyplot as plt\\nimport sklearn\\n%matplotlib inline\\nimport matplotlib.pyplot as plt \\nplt.rcParams[\\\u0022figure.figsize\\\u0022] = [16, 12]\\n# Input data files are available in the \\\u0022../input/\\\u0022 directory.\\n# For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory\\n\\nfrom subprocess import check_output\\nprint(check_output([\\\u0022ls\\\u0022, \\\u0022../input\\\u0022]).decode(\\\u0022utf8\\\u0022))\\n\\n# Any results you write to the current directory are saved as output.\\nfilenames = check_output([\\\u0022ls\\\u0022, \\\u0022../input\\\u0022]).decode(\\\u0022utf8\\\u0022).strip()\\n# helpful character encoding module\\nimport chardet\\n\\n# set seed for reproducibility\\nnp.random.seed(0)\u0022,\u0022execution_count\u0022:1,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022_cell_guid\u0022:\u002279c7e3d0-c299-4dcb-8224-4455121ee9b0\u0022,\u0022_uuid\u0022:\u0022d629ff2d2480ee46fbb7e2d37f6b5fab8052498a\u0022,\u0022trusted\u0022:true},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022print(check_output([\\\u0022ls\\\u0022, \\\u0022../input/data\\\u0022]).decode(\\\u0022utf8\\\u0022))\u0022,\u0022execution_count\u0022:2,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022collapsed\u0022:true,\u0022_uuid\u0022:\u00222a436ceaec40a38482c1c3389d9fa328fc10383e\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df = pd.read_csv(\u0027../input/data/ethylene_CO.txt\u0027, delim_whitespace=True, skiprows=[0], header=None)\\ndg = pd.read_csv(\u0027../input/data/ethylene_methane.txt\u0027, delim_whitespace=True, skiprows=[0], header=None)\\ndf = df.rename(columns = {0:\u0027Time (seconds)\u0027, 1:\u0027CO2 conc (ppm)\u0027, 2:\u0027Ethylene conc (ppm)\u0027, 3:\u0027Sensor1\u0027,4:\u0027Sensor2\u0027,5:\u0027Sensor3\u0027,6:\u0027Sensor4\u0027,7:\u0027Sensor5\u0027,8:\u0027Sensor6\u0027,9:\u0027Sensor7\u0027,10:\u0027Sensor8\u0027,11:\u0027Sensor9\u0027,12:\u0027Sensor10\u0027,13:\u0027Sensor11\u0027,14:\u0027Sensor12\u0027,15:\u0027Sensor13\u0027,16:\u0027Sensor14\u0027,17:\u0027Sensor15\u0027,18:\u0027Sensor16\u0027})\\ndg = dg.rename(columns = {0:\u0027Time (seconds)\u0027, 1:\u0027Methane conc (ppm)\u0027, 2:\u0027Ethylene conc (ppm)\u0027, 3:\u0027Sensor1\u0027,4:\u0027Sensor2\u0027,5:\u0027Sensor3\u0027,6:\u0027Sensor4\u0027,7:\u0027Sensor5\u0027,8:\u0027Sensor6\u0027,9:\u0027Sensor7\u0027,10:\u0027Sensor8\u0027,11:\u0027Sensor9\u0027,12:\u0027Sensor10\u0027,13:\u0027Sensor11\u0027,14:\u0027Sensor12\u0027,15:\u0027Sensor13\u0027,16:\u0027Sensor14\u0027,17:\u0027Sensor15\u0027,18:\u0027Sensor16\u0027})\\n\\n#https://stackoverflow.com/questions/15026698/how-to-make-separator-in-read-csv-more-flexible-wrt-whitespace\\n\u0022,\u0022execution_count\u0022:24,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u00227b09d05591b60240e37a498d65eb5fcbe6e06ae5\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df.head()\\n# probably the row 2 has typo in time. time should be proportional to row number\u0022,\u0022execution_count\u0022:25,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022a7608f7f29158daa033296e2e376d1e2cdb0a154\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022dg.head()\u0022,\u0022execution_count\u0022:26,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022337b0a4e6f56b160293b94dc0f896b51de696f69\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df.shape\u0022,\u0022execution_count\u0022:27,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022bcf3e3886c4cb253a8c49012854b472cfc7b6e20\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022dg.shape\u0022,\u0022execution_count\u0022:28,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022collapsed\u0022:true,\u0022_uuid\u0022:\u0022b4d66ed2342213c4f6c67669aadd5abcefafc985\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df = df.set_index(\u0027Time (seconds)\u0027)\\ndg = dg.set_index(\u0027Time (seconds)\u0027)\u0022,\u0022execution_count\u0022:29,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022570c3a2ff86bb2719d6983c753b1d46d5497d342\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df[\u0027CO2 conc (ppm)\u0027].plot.line()\u0022,\u0022execution_count\u0022:31,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022e7d5b457d31cd4a60e77776b341abf0401814dfa\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df[\u0027Ethylene conc (ppm)\u0027].plot.line()\u0022,\u0022execution_count\u0022:32,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022f9cdfe3fedbe3548e2b15ebe881d00df6c96004c\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df.dtypes\u0022,\u0022execution_count\u0022:33,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u002265df8fb10328ec55af2c42acdcdfa2aac80808d5\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022dg.dtypes\u0022,\u0022execution_count\u0022:34,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022185a5a8dc875c2bf6f7db8045b6bb78c7879c74d\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df.isnull().sum()\u0022,\u0022execution_count\u0022:35,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022b6923689c759fa83c4a0ccff3711afbe7f40bead\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022dg.isnull().sum()\u0022,\u0022execution_count\u0022:36,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022collapsed\u0022:true,\u0022_uuid\u0022:\u002260572f3d58f8ca3b567ff2b078bf2561a0e38b59\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022\u0022,\u0022execution_count\u0022:null,\u0022outputs\u0022:[]}],\u0022metadata\u0022:{\u0022kernelspec\u0022:{\u0022display_name\u0022:\u0022Python 3\u0022,\u0022language\u0022:\u0022python\u0022,\u0022name\u0022:\u0022python3\u0022},\u0022language_info\u0022:{\u0022name\u0022:\u0022python\u0022,\u0022version\u0022:\u00223.6.5\u0022,\u0022mimetype\u0022:\u0022text/x-python\u0022,\u0022codemirror_mode\u0022:{\u0022name\u0022:\u0022ipython\u0022,\u0022version\u0022:3},\u0022pygments_lexer\u0022:\u0022ipython3\u0022,\u0022nbconvert_exporter\u0022:\u0022python\u0022,\u0022file_extension\u0022:\u0022.py\u0022}},\u0022nbformat\u0022:4,\u0022nbformat_minor\u0022:1}","dateCreated":"2018-05-03T07:05:54.2Z"},"kernelRun":{"id":3466029,"kernelId":899863,"status":"complete","type":"batch","sourceType":"notebook","language":"python","title":"regression no missing val, data delim_whitespace ","dateCreated":"2018-05-03T07:05:54.2Z","dateEvaluated":"2018-05-03T07:05:55.45Z","dateCancelled":null,"workerContainerPort":null,"workerUptimeSeconds":265036,"workerIPAddress":"172.16.4.11    ","workerIPAddressExternal":null,"scriptLanguageId":9,"scriptLanguageName":"IPython Notebook HTML","renderedOutputUrl":"https://www.kaggleusercontent.com/kf/3466029/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..svE1xFTy6JEnqRJETO-FXQ.-V2IgHlsTxYe5XY1TTQTbuCly1X_bKgTCThGuMopL7jpr-I5RLmpHWW6eSG1dNW7OshQvhk5aTTTycXwUamE8HX4MIJekOPq3nDC1K7v2v2xUAq5qj9GpQ3lh6w8k8re3eE5sta2cEyU0sCHdSC-fpHpEcXare_9_fJPf4H_lYcXjWEt--xAV2ygCBN_EFltiyu6b8J9D2ugsGz5x5B8Ly8diGmjK_e7Iy9IbnY1Z1u4GnKMEub7p2nzmTx_urwf_XXWGfPKerIBOhPMtMU2ctrGj21AGQLeuxBdrPT6iul1XnsAhzhKTZB5lO3FvfKMEOYpC5WlYthnoLX62Ksrud_lfYMukKVuL0BFpGwQRqVs0UH4ksMb-aVC0k2a61c9bFt-awPDtbWMm8PEeq9ZQer9jksPiFZm4XlV8afUs6rPg4BbqMJjTiECkSvX54eztoQOz4LP9-ayR30pupSMEvHwJ1Mio-i0MWQB70t47LYpfFOnPFBroeOoRm_mFNl_Umb-6RrppHjdxwwhHJ99U5WTdE3YJjuJMWBP978VW-zphTHJbnbUSoQgDs0a02vaaA8KABy0wlzQCNMwSf4gP0qnn8M4Ofz6HtXoIkKrckF1zs7iC4tHuE4TCR4QUjcH3UlLYueyjlKfNxIC8mupwInJvsVzALfWs1bc5Yod3S5xiwzYtjoV6fP1NdyBiqf9.hdB4hzqVkq3Vy_8pH8GQUQ/__results__.html","commit":{"id":4947510,"settings":{"dockerImageVersionId":1302,"dataSources":[{"sourceType":"DatasetVersion","sourceId":6024,"datasetId":null,"databundleVersionId":null,"mountSlug":null}],"sourceType":"notebook","language":"python","accelerator":"none","isInternetEnabled":false},"source":"{\u0022cells\u0022:[{\u0022metadata\u0022:{\u0022_cell_guid\u0022:\u0022b1076dfc-b9ad-4769-8c92-a6c4dae69d19\u0022,\u0022_uuid\u0022:\u00228f2839f25d086af736a60e9eeb907d3b93b6e0e5\u0022,\u0022trusted\u0022:true},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022# This Python 3 environment comes with many helpful analytics libraries installed\\n# It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python\\n# For example, here\u0027s several helpful packages to load in \\nimport math\\nimport seaborn as sns\\nsns.set(style=\\\u0022whitegrid\\\u0022, color_codes=True)\\n\\n\\nfrom wordcloud import WordCloud, STOPWORDS\\n\\nimport pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)\\nimport numpy as np # linear algebra\\nimport matplotlib \\nimport matplotlib.pyplot as plt\\nimport sklearn\\n%matplotlib inline\\nimport matplotlib.pyplot as plt \\nplt.rcParams[\\\u0022figure.figsize\\\u0022] = [16, 12]\\n# Input data files are available in the \\\u0022../input/\\\u0022 directory.\\n# For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory\\n\\nfrom subprocess import check_output\\nprint(check_output([\\\u0022ls\\\u0022, \\\u0022../input\\\u0022]).decode(\\\u0022utf8\\\u0022))\\n\\n# Any results you write to the current directory are saved as output.\\nfilenames = check_output([\\\u0022ls\\\u0022, \\\u0022../input\\\u0022]).decode(\\\u0022utf8\\\u0022).strip()\\n# helpful character encoding module\\nimport chardet\\n\\n# set seed for reproducibility\\nnp.random.seed(0)\u0022,\u0022execution_count\u0022:1,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022_cell_guid\u0022:\u002279c7e3d0-c299-4dcb-8224-4455121ee9b0\u0022,\u0022_uuid\u0022:\u0022d629ff2d2480ee46fbb7e2d37f6b5fab8052498a\u0022,\u0022trusted\u0022:true},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022print(check_output([\\\u0022ls\\\u0022, \\\u0022../input/data\\\u0022]).decode(\\\u0022utf8\\\u0022))\u0022,\u0022execution_count\u0022:2,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022collapsed\u0022:true,\u0022_uuid\u0022:\u00222a436ceaec40a38482c1c3389d9fa328fc10383e\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df = pd.read_csv(\u0027../input/data/ethylene_CO.txt\u0027, delim_whitespace=True, skiprows=[0], header=None)\\ndg = pd.read_csv(\u0027../input/data/ethylene_methane.txt\u0027, delim_whitespace=True, skiprows=[0], header=None)\\ndf = df.rename(columns = {0:\u0027Time (seconds)\u0027, 1:\u0027CO2 conc (ppm)\u0027, 2:\u0027Ethylene conc (ppm)\u0027, 3:\u0027Sensor1\u0027,4:\u0027Sensor2\u0027,5:\u0027Sensor3\u0027,6:\u0027Sensor4\u0027,7:\u0027Sensor5\u0027,8:\u0027Sensor6\u0027,9:\u0027Sensor7\u0027,10:\u0027Sensor8\u0027,11:\u0027Sensor9\u0027,12:\u0027Sensor10\u0027,13:\u0027Sensor11\u0027,14:\u0027Sensor12\u0027,15:\u0027Sensor13\u0027,16:\u0027Sensor14\u0027,17:\u0027Sensor15\u0027,18:\u0027Sensor16\u0027})\\ndg = dg.rename(columns = {0:\u0027Time (seconds)\u0027, 1:\u0027Methane conc (ppm)\u0027, 2:\u0027Ethylene conc (ppm)\u0027, 3:\u0027Sensor1\u0027,4:\u0027Sensor2\u0027,5:\u0027Sensor3\u0027,6:\u0027Sensor4\u0027,7:\u0027Sensor5\u0027,8:\u0027Sensor6\u0027,9:\u0027Sensor7\u0027,10:\u0027Sensor8\u0027,11:\u0027Sensor9\u0027,12:\u0027Sensor10\u0027,13:\u0027Sensor11\u0027,14:\u0027Sensor12\u0027,15:\u0027Sensor13\u0027,16:\u0027Sensor14\u0027,17:\u0027Sensor15\u0027,18:\u0027Sensor16\u0027})\\n\\n#https://stackoverflow.com/questions/15026698/how-to-make-separator-in-read-csv-more-flexible-wrt-whitespace\\n\u0022,\u0022execution_count\u0022:24,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u00227b09d05591b60240e37a498d65eb5fcbe6e06ae5\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df.head()\\n# probably the row 2 has typo in time. time should be proportional to row number\u0022,\u0022execution_count\u0022:25,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022a7608f7f29158daa033296e2e376d1e2cdb0a154\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022dg.head()\u0022,\u0022execution_count\u0022:26,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022337b0a4e6f56b160293b94dc0f896b51de696f69\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df.shape\u0022,\u0022execution_count\u0022:27,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022bcf3e3886c4cb253a8c49012854b472cfc7b6e20\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022dg.shape\u0022,\u0022execution_count\u0022:28,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022collapsed\u0022:true,\u0022_uuid\u0022:\u0022b4d66ed2342213c4f6c67669aadd5abcefafc985\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df = df.set_index(\u0027Time (seconds)\u0027)\\ndg = dg.set_index(\u0027Time (seconds)\u0027)\u0022,\u0022execution_count\u0022:29,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022570c3a2ff86bb2719d6983c753b1d46d5497d342\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df[\u0027CO2 conc (ppm)\u0027].plot.line()\u0022,\u0022execution_count\u0022:31,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022e7d5b457d31cd4a60e77776b341abf0401814dfa\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df[\u0027Ethylene conc (ppm)\u0027].plot.line()\u0022,\u0022execution_count\u0022:32,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022f9cdfe3fedbe3548e2b15ebe881d00df6c96004c\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df.dtypes\u0022,\u0022execution_count\u0022:33,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u002265df8fb10328ec55af2c42acdcdfa2aac80808d5\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022dg.dtypes\u0022,\u0022execution_count\u0022:34,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022185a5a8dc875c2bf6f7db8045b6bb78c7879c74d\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022df.isnull().sum()\u0022,\u0022execution_count\u0022:35,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022_uuid\u0022:\u0022b6923689c759fa83c4a0ccff3711afbe7f40bead\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022dg.isnull().sum()\u0022,\u0022execution_count\u0022:36,\u0022outputs\u0022:[]},{\u0022metadata\u0022:{\u0022trusted\u0022:true,\u0022collapsed\u0022:true,\u0022_uuid\u0022:\u002260572f3d58f8ca3b567ff2b078bf2561a0e38b59\u0022},\u0022cell_type\u0022:\u0022code\u0022,\u0022source\u0022:\u0022\u0022,\u0022execution_count\u0022:null,\u0022outputs\u0022:[]}],\u0022metadata\u0022:{\u0022kernelspec\u0022:{\u0022display_name\u0022:\u0022Python 3\u0022,\u0022language\u0022:\u0022python\u0022,\u0022name\u0022:\u0022python3\u0022},\u0022language_info\u0022:{\u0022name\u0022:\u0022python\u0022,\u0022version\u0022:\u00223.6.5\u0022,\u0022mimetype\u0022:\u0022text/x-python\u0022,\u0022codemirror_mode\u0022:{\u0022name\u0022:\u0022ipython\u0022,\u0022version\u0022:3},\u0022pygments_lexer\u0022:\u0022ipython3\u0022,\u0022nbconvert_exporter\u0022:\u0022python\u0022,\u0022file_extension\u0022:\u0022.py\u0022}},\u0022nbformat\u0022:4,\u0022nbformat_minor\u0022:1}","dateCreated":"2018-05-03T07:05:54.2Z"},"resources":null,"isolatorResults":"\u003cresults\u003e\u003cdisk_kb_free\u003e944948\u003c/disk_kb_free\u003e\u003cdocker_image_digest\u003e5a1614d18dade73095b696c8b4e25fa3a6d40f25c5f79998e9c54476d10de018\u003c/docker_image_digest\u003e\u003cdocker_image_id\u003esha256:460889302c794dcc96ad587ac9ffdb4188634972cd4085123f9c24dbf4455811\u003c/docker_image_id\u003e\u003cdocker_image_name\u003egcr.io/kaggle-images/python\u003c/docker_image_name\u003e\u003cexit_code\u003e0\u003c/exit_code\u003e\u003cfailure_message /\u003e\u003cinvalid_path_errors\u003eFalse\u003c/invalid_path_errors\u003e\u003cout_of_memory\u003eFalse\u003c/out_of_memory\u003e\u003crun_time_seconds\u003e38.8949335150537\u003c/run_time_seconds\u003e\u003csucceeded\u003eTrue\u003c/succeeded\u003e\u003ctimeout_exceeded\u003eFalse\u003c/timeout_exceeded\u003e\u003cused_all_space\u003eFalse\u003c/used_all_space\u003e\u003cwas_killed\u003eFalse\u003c/was_killed\u003e\u003c/results\u003e","runInfo":{"dockerfileUrl":"https://github.com/Kaggle/docker-python/blob/master/Dockerfile","dockerHubUrl":"https://gcr.io/kaggle-images/python","dockerImageDigest":"5a1614d18dade73095b696c8b4e25fa3a6d40f25c5f79998e9c54476d10de018","dockerImageId":"sha256:460889302c794dcc96ad587ac9ffdb4188634972cd4085123f9c24dbf4455811","dockerImageName":"gcr.io/kaggle-images/python","diskKbFree":944948,"failureMessage":"","exitCode":0,"queuedSeconds":0,"outputSizeBytes":0,"runTimeSeconds":38.8949335150537,"usedAllSpace":false,"timeoutExceeded":false,"isValidStatus":false,"wasGpuEnabled":false,"wasInternetEnabled":false,"outOfMemory":false,"invalidPathErrors":false,"succeeded":true,"wasKilled":false},"dockerImageVersionId":1302,"usedCustomDockerImage":false,"dataSources":[{"sourceType":"DatasetVersion","sourceId":6024,"datasetId":2916,"databundleVersionId":null,"mountSlug":""}],"useNewKernelsBackend":null,"isGpuEnabled":false,"isTpuEnabled":false,"acceleratorType":"none","isInternetEnabled":false,"userPlan":"free"},"author":{"id":557222,"displayName":"Jihye Sofia Seo","email":null,"editedEmail":null,"editedEmailCode":null,"userName":"jihyeseo","thumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/557222-fb.jpg","profileUrl":"/jihyeseo","registerDate":"0001-01-01T00:00:00Z","lastVisitDate":"0001-01-01T00:00:00Z","statusId":0,"performanceTier":2,"grandfatheredCompetitionTier":null,"userLogins":null,"groupIds":null,"duplicateUsers":null,"hasPhoneVerifications":false,"failedNerdchas":0,"hasPendingNerdcha":false,"deleteRequests":null,"isAdmin":false,"isKaggleBot":false,"isAnonymous":false,"canAct":false,"canBeSeen":false,"thumbnailName":null,"isPhoneVerified":false},"baseUrl":"/jihyeseo/regression-no-missing-val-data-delim-whitespace","collaborators":{"owner":{"userId":557222,"groupId":null,"groupMemberCount":null,"profileUrl":"/jihyeseo","thumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/557222-fb.jpg","name":"Jihye Sofia Seo","slug":"jihyeseo","userTier":2,"joinDate":null,"type":"owner","isUser":true,"isGroup":false},"collaborators":[]},"initialTab":"","log":"[{\n  \u0022data\u0022: \u0022[NbConvertApp] Converting notebook script.ipynb to html\\n\u0022,\n  \u0022stream_name\u0022: \u0022stderr\u0022,\n  \u0022time\u0022: 3.746270075032953\n},{\n  \u0022data\u0022: \u0022[NbConvertApp] Executing notebook with kernel: python3\\n\u0022,\n  \u0022stream_name\u0022: \u0022stderr\u0022,\n  \u0022time\u0022: 3.7867596250143833\n},{\n  \u0022data\u0022: \u0022[NbConvertApp] Support files will be in __results___files/\\n[NbConvertApp] Making directory __results___files\\n\u0022,\n  \u0022stream_name\u0022: \u0022stderr\u0022,\n  \u0022time\u0022: 38.11951443203725\n},{\n  \u0022data\u0022: \u0022[NbConvertApp] Making directory __results___files\\n[NbConvertApp] Writing 277371 bytes to __results__.html\\n\u0022,\n  \u0022stream_name\u0022: \u0022stderr\u0022,\n  \u0022time\u0022: 38.155383125995286\n}]","outputFiles":[],"ouputFilesOwnerInfo":{"databundleVersionId":0,"dataset":null,"competition":null,"kernel":{"kernelId":899863,"kernelVersionId":3466029,"scope":"jihyeseo/regression-no-missing-val-data-delim-whitespace"},"previewsDisabled":false},"pageMessages":[],"dataSources":[{"sourceType":"DatasetVersion","sourceId":6024,"datasetId":2916,"databundleVersionId":null,"mountSlug":""}],"versions":[{"id":3466029,"isForkParent":false,"isNotebook":true,"languageName":"Python","lastRunTime":"2018-05-03T07:05:54.2Z","linesChangedFromPrevious":0,"linesDeletedFromPrevious":0,"linesInsertedFromPrevious":8,"outputFilesTotalSizeBytes":0,"runInfo":{"dockerfileUrl":"https://github.com/Kaggle/docker-python/blob/master/Dockerfile","dockerHubUrl":"https://registry.hub.docker.com/u/kaggle/python/","dockerImageId":"sha256:460889302c794dcc96ad587ac9ffdb4188634972cd4085123f9c24dbf4455811","dockerImageName":"gcr.io/kaggle-images/python","exitCode":0,"failureMessage":"","isValidStatus":true,"runTimeSeconds":38.8949335150537,"succeeded":true,"timeoutExceeded":false,"usedAllSpace":false},"status":"complete","title":"regression no missing val, data delim_whitespace ","url":"/jihyeseo/regression-no-missing-val-data-delim-whitespace?scriptVersionId=3466029","versionNumber":3,"hasVersionNumber":true,"isRedacted":false,"versionAuthor":null,"versionType":"batch","userPlan":"free"},{"id":3466010,"isForkParent":false,"isNotebook":true,"languageName":"Python","lastRunTime":"2018-05-03T07:04:58.413Z","linesChangedFromPrevious":0,"linesDeletedFromPrevious":1,"linesInsertedFromPrevious":21,"outputFilesTotalSizeBytes":0,"runInfo":{"dockerfileUrl":"https://github.com/Kaggle/docker-python/blob/master/Dockerfile","dockerHubUrl":"https://registry.hub.docker.com/u/kaggle/python/","dockerImageId":"sha256:460889302c794dcc96ad587ac9ffdb4188634972cd4085123f9c24dbf4455811","dockerImageName":"gcr.io/kaggle-images/python","exitCode":0,"failureMessage":"","isValidStatus":true,"runTimeSeconds":38.6284052059636,"succeeded":true,"timeoutExceeded":false,"usedAllSpace":false},"status":"complete","title":"regression data delim_whitespace ","url":"/jihyeseo/regression-no-missing-val-data-delim-whitespace?scriptVersionId=3466010","versionNumber":2,"hasVersionNumber":true,"isRedacted":false,"versionAuthor":null,"versionType":"batch","userPlan":"free"},{"id":3341980,"isForkParent":false,"isNotebook":true,"languageName":"Python","lastRunTime":"2018-04-24T14:03:05.04Z","linesChangedFromPrevious":0,"linesDeletedFromPrevious":0,"linesInsertedFromPrevious":39,"outputFilesTotalSizeBytes":0,"runInfo":{"dockerfileUrl":"https://github.com/Kaggle/docker-python/blob/master/Dockerfile","dockerHubUrl":"https://registry.hub.docker.com/u/kaggle/python/","dockerImageId":"sha256:597aed4fc3d6311b002ae8107c34cd004623d9bd4577baf5de315fc2b4905bd3","dockerImageName":"gcr.io/kaggle-images/python","exitCode":0,"failureMessage":"","isValidStatus":true,"runTimeSeconds":21.7999430459458,"succeeded":true,"timeoutExceeded":false,"usedAllSpace":false},"status":"complete","title":"Not good tsv format maybe","url":"/jihyeseo/regression-no-missing-val-data-delim-whitespace?scriptVersionId=3341980","versionNumber":1,"hasVersionNumber":true,"isRedacted":false,"versionAuthor":null,"versionType":"batch","userPlan":"free"}],"categories":{"type":"notebook","tags":[]},"downloadAllFilesUrl":"/code/svzip/3466029","submission":null,"menuLinks":[{"count":null,"href":"/jihyeseo/regression-no-missing-val-data-delim-whitespace/notebook","reportEventCategory":null,"reportEventType":null,"showZeroCountExplicitly":false,"showOnMobile":true,"tab":"notebook","text":"Notebook","title":"Notebook"},{"count":null,"href":"/jihyeseo/regression-no-missing-val-data-delim-whitespace/code","reportEventCategory":null,"reportEventType":null,"showZeroCountExplicitly":false,"showOnMobile":true,"tab":"code","text":"Code","title":"Code"},{"count":1,"href":"/jihyeseo/regression-no-missing-val-data-delim-whitespace/data","reportEventCategory":null,"reportEventType":null,"showZeroCountExplicitly":false,"showOnMobile":true,"tab":"data","text":"Input","title":"Input"},{"count":null,"href":"/jihyeseo/regression-no-missing-val-data-delim-whitespace/execution","reportEventCategory":null,"reportEventType":null,"showZeroCountExplicitly":false,"showOnMobile":false,"tab":"execution","text":"Execution Info","title":"Execution Info"},{"count":null,"href":"/jihyeseo/regression-no-missing-val-data-delim-whitespace/log","reportEventCategory":null,"reportEventType":null,"showZeroCountExplicitly":false,"showOnMobile":false,"tab":"log","text":"Log","title":"Log"},{"count":2,"href":"/jihyeseo/regression-no-missing-val-data-delim-whitespace/comments","reportEventCategory":null,"reportEventType":null,"showZeroCountExplicitly":true,"showOnMobile":true,"tab":"comments","text":"Comments","title":"Comments"}],"rightMenuLinks":[],"callToAction":{"count":null,"href":"/code/fork-version/3466029","reportEventCategory":"kernels","reportEventType":"anonymousKernelForkCreation","showZeroCountExplicitly":false,"showOnMobile":true,"tab":null,"text":"Fork Notebook","title":"Fork Notebook"},"voteButton":{"totalVotes":1,"medalVotes":1,"hasAlreadyVotedUp":false,"hasAlreadyVotedDown":false,"canUpvote":true,"canDownvote":false,"voteUpUrl":null,"voteDownUrl":null,"voters":[{"id":5410556,"displayName":"afrânio","email":null,"editedEmail":null,"editedEmailCode":null,"userName":"afrniomelo","thumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/5410556-kg.jpg","profileUrl":"/afrniomelo","registerDate":"0001-01-01T00:00:00Z","lastVisitDate":"0001-01-01T00:00:00Z","statusId":0,"performanceTier":1,"grandfatheredCompetitionTier":null,"userLogins":null,"groupIds":null,"duplicateUsers":null,"hasPhoneVerifications":false,"failedNerdchas":0,"hasPendingNerdcha":false,"deleteRequests":null,"isAdmin":false,"isKaggleBot":false,"isAnonymous":false,"canAct":false,"canBeSeen":false,"thumbnailName":null,"isPhoneVerified":false}],"currentUserInfo":null,"showVoters":true,"alwaysShowVoters":true,"kernelId":899863},"parentName":"Gas sensor array under dynamic gas mixtures","parentUrl":"/uciml/gas-sensor-array-under-dynamic-gas-mixtures","thumbnailImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/2916/6024/400d96c2d1770ecaf017f536dc666666/dataset-thumbnail.jpg?t=2017-11-13-21-12-26","canWrite":false,"canAdminister":false,"currentUserForkParentSessionId":null,"currentUserHasForked":false,"forkParentIsRedacted":false,"forkDiffLinesChanged":0,"forkDiffLinesDeleted":0,"forkDiffLinesInserted":0,"forkDiffUrl":null,"forkParentAuthorDisplayName":null,"forkParentAuthorUrl":null,"forkParentTitle":null,"forkParentUrl":null,"simplifiedViewer":false,"kernelOutputDataset":null,"disableComments":false,"taskSubmissionInfo":null,"learnSeriesNavigationData":null});performance && performance.mark && performance.mark("KernelViewer.componentCouldBootstrap");</script>
+
+<form action="/jihyeseo/regression-no-missing-val-data-delim-whitespace?scriptVersionId=3466029&amp;cellId=1" id="__AjaxAntiForgeryForm" method="post"><input name="X-XSRF-TOKEN" type="hidden" value="CfDJ8LdUzqlsSWBPr4Ce3rb9VL-BFL-nxNzy10DBoeb7jeLmS4gRC8467GlOFnW4INQ-1hMTP_3ZqUy0MQF8NeALowhOOhE0b8uDyzy6R_HNIHV7zKPwKe00CX1lIxDtn7F5ObTqmk0PKx9p_GfEQs8H1UU" /></form>
+<script nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==" type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    preferredFont: "TeX",
+    availableFonts: ["STIX", "TeX"],
+    linebreaks: {
+    automatic: true
+    },
+    EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+    inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|dno"
+    },
+    TeX: {
+    noUndefined: {
+    attributes: {
+    mathcolor: "red",
+    mathbackground: "#FFEEEE",
+    mathsize: "90%"
+    }
+    }
+    },
+    Macros: {
+    href: "{}"
+    },
+    skipStartupTypeset: true,
+    messageStyle: "none",
+    extensions: [],
+    });
+</script>
+<script type="text/javascript" nonce="gNU&#x2B;KqwqPB/uMFdaSYrIcA==">
+  window.addEventListener("DOMContentLoaded", () => {
+    const head = document.getElementsByTagName("head")[0];
+    const useProdHosts = ["www.kaggle.com", "admin.kaggle.com"];
+    const subdomain = useProdHosts.includes(window.location.hostname) ? "www" : "staging";
+
+    const lib = document.createElement("script");
+    lib.type = "text/javascript";
+    lib.src = `https://${subdomain}.kaggleusercontent.com/static/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML`;
+    head.appendChild(lib);
+  });
+</script>
+
+
+</div>
+
+
+
+
+    </main>
+</body>
+</html>
